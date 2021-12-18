@@ -1,4 +1,4 @@
-<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/OnlineShop_Logo.jpg"
+<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/ProjectElements/OnlineShop_Logo.jpg"
      alt="Project-Online Shop"
      width="200px"
      style="float: left; margin-right: 10px;" />
@@ -75,7 +75,7 @@ An online shop, managed by administrators. Inventory or items models can be upda
 -    Categories - Categries of existing products.
 
 #### SQL diagram
-<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/OnlineShop_SQL-Diagram.png"
+<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/ProjectElements/OnlineShop_SQL-Diagram.png"
      alt="Online Shop - SQL Diagram"
      width="800px"
      style="float: left; margin-right: 10px;" />
@@ -89,7 +89,7 @@ An online shop, managed by administrators. Inventory or items models can be upda
 -    LoginOrSignUp - Screen of login or registration action.
 
 #### Homepage screen
-<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/OnlineShop_Homepage.png"
+<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/ProjectElements/OnlineShop_Homepage.png"
      alt="Homepage scree"
      width="800px"
      style="float: left; margin-right: 10px;" />
