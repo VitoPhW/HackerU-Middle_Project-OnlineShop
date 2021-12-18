@@ -66,7 +66,7 @@ An online shop, managed by administrators. Inventory or items models can be upda
 -	Entity Framework (EF) Core .NET
 -	SQL
 
-#### SQL tables
+#### [SQL Database](https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/tree/master/ProjectElements/DatabaseCreationQuery)
 -    UserTypes - User type (Admin, Assistant, Customer, Guest).
 -    Users - Registered users (Admins, Assistants, Customers).
 -    Orders - All performed orders.
