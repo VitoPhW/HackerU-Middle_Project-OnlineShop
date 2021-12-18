@@ -56,7 +56,7 @@ An online shop, managed by administrators. Inventory or items models can be upda
 
 ##### Used
 
--C# .NET
--WPF .NET
--Entity Framework (EF) Core .NET
--SQL
+-    C# .NET
+-    WPF .NET
+-    Entity Framework (EF) Core .NET
+-    SQL
