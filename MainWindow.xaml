@@ -48,7 +48,7 @@
 
         <!--  Categories  -->
         <Label Content="Categories" Grid.Column="1" Grid.Row="2" Margin="10 0" FontWeight="Bold" FontSize="20"/>
-        <Border Background="GhostWhite" BorderBrush="Gray" BorderThickness="1,3,1,3" Grid.Column="1" Grid.Row="3">
+        <Border Background="GhostWhite" BorderBrush="LightSeaGreen" BorderThickness="1,3,1,3" Grid.Column="1" Grid.Row="3">
             <DockPanel  Width="200" Height="100" Margin="10" Grid.ColumnSpan="2" HorizontalAlignment="Left">
                 <ListBox x:Name="ListBoxCategories" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectedIndex="0" SelectionChanged="ListBoxCategories_SelectionChanged" SelectionMode="Single">
                     <ListBox.ItemTemplate>
@@ -73,7 +73,7 @@
 
         <!--  Products  -->
         <Label Content="Products" Grid.Column="2" Grid.Row="2" Margin="10 0" FontWeight="Bold" FontSize="20"/>
-        <Border Background="GhostWhite" BorderBrush="Gray" BorderThickness="1,3,1,3" Grid.Column="2" Grid.Row="3">
+        <Border Background="GhostWhite" BorderBrush="LightSeaGreen" BorderThickness="1,3,1,3" Grid.Column="2" Grid.Row="3">
         <DockPanel Width="520" MinWidth="200" MinHeight="100" MaxHeight="100" Margin="10" Grid.ColumnSpan="3" HorizontalAlignment="Left">
             <ListBox x:Name="ListBoxProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ListBoxProducts_MouseDoubleClick">
                 <ListBox.ItemTemplate>
@@ -97,13 +97,13 @@
 
         <!--  Basket  -->
         <Label Content="Basket" Grid.Column="1" Grid.Row="4" Margin="10 0 30 0" FontWeight="Bold" FontSize="20" HorizontalAlignment="Right"/>
-        <Border Background="GhostWhite" BorderBrush="Gray" BorderThickness="1,3,1,3" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3">
-            <DockPanel Height="100">
+        <Border Background="GhostWhite" BorderBrush="LightGreen" BorderThickness="1,3,1,3" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3">
+            <DockPanel Height="100" MaxWidth="762">
                 <StackPanel>
                     <Button x:Name="AddToBasket" Content="Add to basket" Margin="10" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Stretch" Click="AddToBasket_Click"/>
                     <Button x:Name="CheckOut" Content="Check out" Margin="10" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Stretch" Click="CheckOut_Click"/>
                 </StackPanel>
-                <ListBox x:Name="ListBoxBasket" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox x:Name="ListBoxBasket" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical"
