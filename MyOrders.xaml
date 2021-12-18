@@ -1,0 +1,95 @@
+﻿<Window x:Class="WpfProject1_OnlineShop.MyOrders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfProject1_OnlineShop"
+        mc:Ignorable="d"
+        Title="MyOrders" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />     <!--Column 0-->
+            <ColumnDefinition Width="auto" />   <!--Column 1-->
+            <ColumnDefinition Width="auto" />   <!--Column 2-->
+            <ColumnDefinition Width="30" />   <!--Column 3-->
+            <ColumnDefinition Width="auto" />   <!--Column 4-->
+            <ColumnDefinition Width="auto" />   <!--Column 5-->
+            <ColumnDefinition Width="auto" />   <!--Column 6-->
+            <ColumnDefinition Width="*" />      <!--Column 7-->
+            <ColumnDefinition Width="20" />     <!--Column 8-->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />   <!--Row 0-->
+            <RowDefinition Height="auto" /> <!--Row 1-->
+            <RowDefinition Height="auto" /> <!--Row 2-->
+            <RowDefinition Height="auto" /> <!--Row 3-->
+            <RowDefinition Height="auto" /> <!--Row 4-->
+            <RowDefinition Height="auto" /> <!--Row 5-->
+            <RowDefinition Height="*" />    <!--Row 6-->
+            <RowDefinition Height="20" />   <!--Row 7-->
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="2" Grid.Row="1" FontSize="24" Content="My orders" Width="300" HorizontalContentAlignment="Center"/>
+        <Button x:Name="bt_BackToHomePage" Grid.Column="4" Grid.Row="2" Width="90" HorizontalAlignment="Right" Content="Back to Store" Margin="10" Click="bt_BackToHomePage_Click"/>
+
+        <DockPanel Grid.Column="2" Grid.Row="3" Width="300">
+            <DataGrid x:Name="DataGridOrders" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*"  MaxHeight="200" SelectionChanged="DataGridOrders_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Order number" Binding="{Binding OrderID}" MinWidth="30"/>
+                    <DataGridTextColumn Header="Purchased on" Binding="{Binding OrderDate}" MinWidth="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+
+        <Label Grid.Column="4" Grid.Row="1" FontSize="24" Content="Order details" Width="300" HorizontalContentAlignment="Center"/>
+
+        <DockPanel Grid.Column="4" Grid.Row="3" Width="430">
+            <DataGrid x:Name="DataGridOrderDetails" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" MaxHeight="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Order number" Binding="{Binding OrderID}" MinWidth="30" MaxWidth="86"/>
+                    <DataGridTextColumn Header="Product" Binding="{Binding Product.ProductName}" MinWidth="70" MaxWidth="120"/>
+                    <DataGridTextColumn Header="Product description" Binding="{Binding Product.ProductDescription}" Width="*"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="55"/>
+                    <DataGridTextColumn Header="Discount" Binding="{Binding Discount}" Width="57"/>
+                    <!--<DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <DataTemplate>
+                                <TextBlock Text="Add to cart"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="addToCart" Content="Add to cart" Click="addToCart_Click" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+
+        <DockPanel Grid.Column="1" Grid.Row="4" Width="760" MinWidth="300" MinHeight="100" MaxHeight="200" Margin="0 10" Grid.ColumnSpan="7" HorizontalAlignment="Left">
+            <ListBox x:Name="ListBoxProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="600" SelectionMode="Multiple">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center">
+                            <Image Source="{Binding Image}" Stretch="UniformToFill" Width="40" Height="50" ToolTip="{Binding ProductDescription}"/>
+                            <Label Content="{Binding ProductName}" MaxWidth="60"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button x:Name="bt_Reorder" Width="90" Height="30" HorizontalAlignment="Right" Content="Reorder" Margin="10" Click="bt_Reorder_Click"/>
+        </DockPanel>
+
+
+    </Grid>
+</Window>
