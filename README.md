@@ -60,3 +60,15 @@ An online shop, managed by administrators. Inventory or items models can be upda
 -	WPF .NET
 -	Entity Framework (EF) Core .NET
 -	SQL
+
+##### SQL Tables
+-    UserTypes - User type (Admin, Assistant, Customer, Guest).
+-    Users - Registered users (Admins, Assistants, Customers).
+-    Orders - All performed orders.
+-    OrderDetails - Details of each order per product and order.
+-    Products - Inventory table.
+-    Categories - Categries of existing products.
+<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/OnlineShop_SQL-Diagram.png"
+     alt="Online Shop - SQL Diagram"
+     width="800px"
+     style="float: left; margin-right: 10px;" />
