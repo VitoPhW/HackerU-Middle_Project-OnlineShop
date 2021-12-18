@@ -58,6 +58,7 @@ namespace WpfProject1_OnlineShop.OrdersMgr
         public void Create(string email, List<Products> products)
         {
             List<OrderDetails> orderDetails = new List<OrderDetails>();
+            List<Products> productsInventoryUpdate = new List<Products>();
             
             using (var dbContext = new DBAccess())
             {
@@ -73,16 +74,33 @@ namespace WpfProject1_OnlineShop.OrdersMgr
                 var prodGroupByID = products.GroupBy(p => p.ProductID).ToList();
                 foreach (var product in prodGroupByID)
                 {
+                    int quantityInOrder = 0;
+                    //update Product inventory (UnitsInStock) value
+                    Products prodForInStockUpdate = dbContext.Products.Where(p => p.ProductID == product.Key).Single();
+                    prodForInStockUpdate.UnitsInStock -= product.Count();
+                    if (prodForInStockUpdate.UnitsInStock < 0)
+                    {
+                        quantityInOrder = product.Count() + prodForInStockUpdate.UnitsInStock;
+                        prodForInStockUpdate.UnitsInStock = 0;
+                        MessageBox.Show($"Sorry, {prodForInStockUpdate.ProductName} is out of stock.\nYou ordered {quantityInOrder} of {prodForInStockUpdate.ProductName}.");
+                    }
+                    else
+                        quantityInOrder = product.Count();
+
+                    productsInventoryUpdate.Add(prodForInStockUpdate);
+                    
                     orderDetails.Add(new OrderDetails()
                     {
                         Order = order,
                         ProductID = product.Key,
-                        Quantity = product.Count(),
+                        Quantity = quantityInOrder,
                         Discount = 0,
                     });
                 }
-                    dbContext.AddRange(orderDetails);
-                    dbContext.SaveChanges();
+
+                dbContext.AddRange(orderDetails);
+                dbContext.UpdateRange(productsInventoryUpdate);
+                dbContext.SaveChanges();
             }
         }
     }

@@ -95,6 +95,7 @@ namespace WpfProject1_OnlineShop
 
         private void LoadCategoriesList()
         {
+            ListBoxCategories.Items.Clear();
             using (var dbContext = new DBAccess())
             {
                 var categories = dbContext.Categories.ToList();
@@ -102,11 +103,11 @@ namespace WpfProject1_OnlineShop
             }
         }
 
-        private void LoadProductsList()
+        public void LoadProductsList()
         {
             using (var dbContext = new DBAccess())
             {
-                ListBoxProducts.ItemsSource = dbContext.Products.ToList();
+                ListBoxProducts.ItemsSource = dbContext.Products.Where(p=>p.UnitsInStock>0).ToList();
             }
         }
         public void UpdateLoginButton()

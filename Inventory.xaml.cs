@@ -43,6 +43,7 @@ namespace WpfProject1_OnlineShop
         private void bt_BackToHomePage_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
+            _mainWindow.LoadProductsList();
             _mainWindow.Show();
         }
 
@@ -53,6 +54,7 @@ namespace WpfProject1_OnlineShop
                 dbContext.UpdateRange(_changedProducts);
                 dbContext.SaveChanges();
                 _changedProducts.Clear();
+                MessageBox.Show("All items are updated successfully.");
             }
         }
 
