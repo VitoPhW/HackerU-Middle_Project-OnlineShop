@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProject1_OnlineShop"
         mc:Ignorable="d"
-        Title="Home Page ''Tal ve Yuval ve''" Height="450" Width="800">
+        Title="Home Page ''Tal ve Yuval ve''" Height="450" Width="820">
     
     <Grid x:Name="HomePage">
         <Grid.ColumnDefinitions>
@@ -21,54 +21,61 @@
             <RowDefinition Height="auto" /> <!--Row 1-->
             <RowDefinition Height="auto" /> <!--Row 2-->
             <RowDefinition Height="auto" /> <!--Row 3-->
-            <RowDefinition Height="auto" /> <!--Row 4-->
+            <RowDefinition Height="20" /> <!--Row 4-->
             <RowDefinition Height="auto" /> <!--Row 5-->
             <RowDefinition Height="*" />    <!--Row 6-->
             <RowDefinition Height="20" />   <!--Row 7-->
         </Grid.RowDefinitions>
-        
+
+        <!-- Customer's buttons-->
         <DockPanel Grid.Column="1" Grid.Row="1" MaxWidth="220" MinWidth="200" HorizontalAlignment="Left">
             <Button x:Name="bt_MyOrders" Margin="10" Content="My Orders" Width="90" Height="30" Click="bt_MyOrders_Click" />
             <Button x:Name="bt_MyDetails" Margin="10" Content="My Account" Width="90" Height="30" Click="bt_MyDetails_Click" />
-        </DockPanel>
-        <DockPanel Grid.Column="4" Grid.Row="1" MaxWidth="300" MinWidth="200" HorizontalAlignment="Right">
-            <TextBlock x:Name="txt_HiUser" Margin="10" Text="Hi Guest!" MaxWidth="150" HorizontalAlignment="Left"  Padding="10"/>
-            <Button x:Name="bt_Login" Margin="10" Content="Login\Logout" Width="90" Height="30" HorizontalAlignment="Right" Click="bt_Login_Click"/>
         </DockPanel>
         
         <!-- Management buttons-->
         <DockPanel Grid.Column="2" Grid.Row="1" MaxWidth="220" MinWidth="200" HorizontalAlignment="Left">
             <Button x:Name="bt_Inventory" Margin="10" Content="Inventory" Width="90" Height="30" Click="bt_Inventory_Click" />
-            <Button x:Name="bt_UserMgmt" Margin="10" Content="User Mgmt" Width="90" Height="30" />
+            <Button x:Name="bt_Admin" Margin="10" Content="Administration" Width="90" Height="30" Click="bt_Admin_Click" />
         </DockPanel>
+
+        <!-- Login \ Logout-->
+        <DockPanel Grid.Column="2" Grid.Row="1" MaxWidth="300" MinWidth="200" HorizontalAlignment="Right">
+            <TextBlock x:Name="txt_HiUser" Margin="10" Text="Hi Guest!" MaxWidth="150" HorizontalAlignment="Left"  Padding="10"/>
+            <Button x:Name="bt_Login" Margin="10" Content="Login\Logout" Width="90" Height="30" HorizontalAlignment="Right" Click="bt_Login_Click"/>
+        </DockPanel>
+        
 
         <!--  Categories  -->
-        <DockPanel Grid.Column="1" Grid.Row="2" Width="700" MaxWidth="750" MinWidth="200" Height="100" Margin="10" Grid.ColumnSpan="4" HorizontalAlignment="Left">
-            <ListBox x:Name="ListBoxCategories" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedIndex="0" SelectionChanged="ListBoxCategories_SelectionChanged" SelectionMode="Single">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <Image Source="{Binding ImageURL}" Stretch="UniformToFill" Width="40" Height="50" ToolTip="{Binding CategoryDescription}"/>
-                            <Label Content="{Binding CategoryName}" MaxWidth="50"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel IsItemsHost="True"
-                                   Orientation="Horizontal"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-            </ListBox>
-        </DockPanel>
-
+        <Label Content="Categories" Grid.Column="1" Grid.Row="2" Margin="10 0" FontWeight="Bold" FontSize="20"/>
+        <Border Background="GhostWhite" BorderBrush="Gray" BorderThickness="1,3,1,3" Grid.Column="1" Grid.Row="3">
+            <DockPanel  Width="200" Height="100" Margin="10" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                <ListBox x:Name="ListBoxCategories" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" SelectedIndex="0" SelectionChanged="ListBoxCategories_SelectionChanged" SelectionMode="Single">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="{Binding ImageURL}" Stretch="UniformToFill" Width="40" Height="50" ToolTip="{Binding CategoryDescription}"/>
+                                <Label Content="{Binding CategoryName}" MaxWidth="50"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True"
+                                       Orientation="Horizontal"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </DockPanel>
+        </Border>
 
         <!--  Products  -->
-        <DockPanel Grid.Column="1" Grid.Row="4" Width="700" MaxWidth="750" MinWidth="200" MinHeight="100" MaxHeight="100" Margin="10" Grid.ColumnSpan="4" HorizontalAlignment="Left">
+        <Label Content="Products" Grid.Column="2" Grid.Row="2" Margin="10 0" FontWeight="Bold" FontSize="20"/>
+        <Border Background="GhostWhite" BorderBrush="Gray" BorderThickness="1,3,1,3" Grid.Column="2" Grid.Row="3">
+        <DockPanel Width="520" MinWidth="200" MinHeight="100" MaxHeight="100" Margin="10" Grid.ColumnSpan="3" HorizontalAlignment="Left">
             <ListBox x:Name="ListBoxProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" MouseDoubleClick="ListBoxProducts_MouseDoubleClick">
-                
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical"
@@ -86,29 +93,33 @@
                 </ListBox.ItemsPanel>
             </ListBox>
         </DockPanel>
+        </Border>
 
-        <DockPanel Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="4" Height="100">
-            <Button x:Name="AddToBasket" Content="Add to basket" Margin="10" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Stretch" Click="AddToBasket_Click"/>
-            <Button x:Name="CheckOut" Content="Check out" Margin="10" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Stretch" Click="CheckOut_Click"/>
-            
-            <ListBox x:Name="ListBoxBasket" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Center">
-                            <Image Source="{Binding Image}" Stretch="UniformToFill" Width="40" Height="50" ToolTip="{Binding ProductDescription}"/>
-                            <Label Content="{Binding ProductName}" MaxWidth="60"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-            </ListBox>
-        </DockPanel>
+        <!--  Order area  -->
+        <Border Background="GhostWhite" BorderBrush="Gray" BorderThickness="1,3,1,3" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3">
+            <DockPanel Height="100">
+                <StackPanel>
+                    <Button x:Name="AddToBasket" Content="Add to basket" Margin="10" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Stretch" Click="AddToBasket_Click"/>
+                    <Button x:Name="CheckOut" Content="Check out" Margin="10" Width="90" Height="30" HorizontalAlignment="Left" VerticalAlignment="Stretch" Click="CheckOut_Click"/>
+                </StackPanel>
+                <ListBox x:Name="ListBoxBasket" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                <Image Source="{Binding Image}" Stretch="UniformToFill" Width="40" Height="50" ToolTip="{Binding ProductDescription}"/>
+                                <Label Content="{Binding ProductName}" MaxWidth="60"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </DockPanel>
+        </Border>
     </Grid>
 </Window>

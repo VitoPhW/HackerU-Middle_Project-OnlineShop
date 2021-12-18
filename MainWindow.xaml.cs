@@ -58,25 +58,25 @@ namespace WpfProject1_OnlineShop
                     {
                         case "Admin":
                             bt_Inventory.Visibility = Visibility.Visible;
-                            bt_UserMgmt.Visibility = Visibility.Visible;
+                            bt_Admin.Visibility = Visibility.Visible;
                             bt_MyDetails.Visibility = Visibility.Visible;
                             bt_MyOrders.Visibility = Visibility.Visible;
                             break;
                         case "Assistant":
                             bt_Inventory.Visibility = Visibility.Visible;
-                            bt_UserMgmt.Visibility = Visibility.Collapsed;
+                            bt_Admin.Visibility = Visibility.Collapsed;
                             bt_MyDetails.Visibility = Visibility.Visible;
                             bt_MyOrders.Visibility = Visibility.Visible;
                             break;
                         case "Customer":
                             bt_Inventory.Visibility = Visibility.Collapsed;
-                            bt_UserMgmt.Visibility = Visibility.Collapsed;
+                            bt_Admin.Visibility = Visibility.Collapsed;
                             bt_MyDetails.Visibility = Visibility.Visible;
                             bt_MyOrders.Visibility = Visibility.Visible;
                             break;
                         default:
                             bt_Inventory.Visibility = Visibility.Collapsed;
-                            bt_UserMgmt.Visibility = Visibility.Collapsed;
+                            bt_Admin.Visibility = Visibility.Collapsed;
                             bt_MyDetails.Visibility = Visibility.Collapsed;
                             bt_MyOrders.Visibility = Visibility.Collapsed;
                             break;
@@ -87,7 +87,7 @@ namespace WpfProject1_OnlineShop
             else
             { 
                 bt_Inventory.Visibility = Visibility.Collapsed;
-                bt_UserMgmt.Visibility = Visibility.Collapsed;
+                bt_Admin.Visibility = Visibility.Collapsed;
                 bt_MyDetails.Visibility = Visibility.Collapsed;
                 bt_MyOrders.Visibility = Visibility.Collapsed;
             }
@@ -223,6 +223,11 @@ namespace WpfProject1_OnlineShop
             Inventory inventory = new Inventory(this);
             inventory.Show();
             this.Hide();
+        }
+
+        private void bt_Admin_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
