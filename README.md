@@ -18,12 +18,6 @@ An online shop, managed by administrators. Inventory or items models can be upda
 -	Admin area.
 
 ### Supported user journeys
-##### Customer
--	Browsing through the available clothes, with filtering (e.g. pants/shirts) and sorting (e.g. by price or popularity)
--	Selecting an item to see its details, and adding it to their shopping cart
--	Check out (placing an order), as a registered user or as a guest
--	Creating a new customer account
--	Logging in to their account to view all their orders, details about a specific order, and track the status of their pending orders (perhaps also cancel an order?)
 
 ##### Admin
 -	Account management
@@ -36,7 +30,6 @@ An online shop, managed by administrators. Inventory or items models can be upda
 
 ##### Assistant
 -	Account management
--	None
 -	Order management
 -	Viewing all pending orders, details of a specific order, and changing order status (pending payment, pending shipment, pending delivery, cancelled, complete)
 -	Viewing all historical order data, with filtering (e.g. by dates, specific items, specific users)
@@ -44,7 +37,19 @@ An online shop, managed by administrators. Inventory or items models can be upda
 -	Viewing the store inventory
 -	Adding/removing/editing an item in the store (including price)
 
-##### Out of scope
+##### Customer
+-	Browsing through the available clothes, with filtering (e.g. pants/shirts) and sorting (e.g. by price or popularity)
+-	Selecting an item to see its details, and adding it to their shopping cart
+-	Check out (placing an order), as a registered user
+-	Logging in to their account to view all their orders, details about a specific order, and track the status of their pending orders (perhaps also cancel an order?)
+
+##### Assistant
+-	Browsing through the available clothes, with filtering (e.g. pants/shirts) and sorting (e.g. by price or popularity)
+-	Selecting an item to see its details, and adding it to their shopping cart
+-	Check out (placing an order), as a guest
+-	Creating a new customer account
+
+### Out of scope
 -	Textual search of items 
 -	Sales reporting - generating a report of sales in a given month/year, owed VAT, etc.
 -	Payment processing
@@ -54,21 +59,37 @@ An online shop, managed by administrators. Inventory or items models can be upda
 -	Business customer journeys
 
 
-##### Used
+### Used
 
 -	C# .NET
 -	WPF .NET
 -	Entity Framework (EF) Core .NET
 -	SQL
 
-##### SQL Tables
+#### SQL tables
 -    UserTypes - User type (Admin, Assistant, Customer, Guest).
 -    Users - Registered users (Admins, Assistants, Customers).
 -    Orders - All performed orders.
 -    OrderDetails - Details of each order per product and order.
 -    Products - Inventory table.
 -    Categories - Categries of existing products.
+
+#### SQL diagram
 <img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/OnlineShop_SQL-Diagram.png"
      alt="Online Shop - SQL Diagram"
+     width="800px"
+     style="float: left; margin-right: 10px;" />
+
+#### WPF screens
+-    MainWindow - Home page, first screen on application opening.
+-    MyOrders - Customer's screen for his\her orders review.
+-    MyAccount - Customer's screen for his\her account review.
+-    Inventory - (Admin\Assistant only) Inventory management.
+-    Admistartion - (Admin only) Screen for management of users and orders.
+-    LoginOrSignUp - Screen of login or registration action.
+
+#### Homepage screen
+<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/OnlineShop_Homepage.png"
+     alt="Homepage scree"
      width="800px"
      style="float: left; margin-right: 10px;" />
