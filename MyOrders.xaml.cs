@@ -38,7 +38,7 @@ namespace WpfProject1_OnlineShop
         }
         private void ShowOrders()
         {
-            DataGridOrders.ItemsSource = _ordersManager.GetOrdersOfLoggedInUser();
+            DataGridOrders.ItemsSource = _ordersManager.GetOrdersOfLoggedInUser().OrderByDescending(p=>p.OrderDate);
         }
 
         private void DataGridOrders_SelectionChanged(object sender, SelectionChangedEventArgs e)

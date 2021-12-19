@@ -29,10 +29,10 @@
             <RowDefinition Height="20" />   <!--Row 7-->
         </Grid.RowDefinitions>
 
-        <Button x:Name="bt_BackToHomePage" Grid.Column="4" Grid.Row="1" Width="90" HorizontalAlignment="Right" Content="Back to Store" Margin="10" Click="bt_BackToHomePage_Click"/>
+        <Button x:Name="bt_BackToHomePage" Grid.Column="1" Grid.Row="1" Width="90" Height="30" HorizontalAlignment="Right" Content="Back to Store" Margin="10" Click="bt_BackToHomePage_Click"/>
 
         <DockPanel Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4" Width="760">
-            <DataGrid x:Name="DataGridInventory" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*"  MaxHeight="300" CellEditEnding="DataGridInventory_CellEditEnding">
+            <DataGrid x:Name="DataGridInventory" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*"  MaxHeight="290" CellEditEnding="DataGridInventory_CellEditEnding">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Cat. no'" Binding="{Binding ProductID}" MinWidth="30" MaxWidth="50" IsReadOnly="True" CanUserResize="False"/>
                     <DataGridTextColumn Header="Name" Binding="{Binding ProductName}" MinWidth="100"/>

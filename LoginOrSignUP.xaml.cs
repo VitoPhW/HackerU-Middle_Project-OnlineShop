@@ -39,7 +39,6 @@ namespace WpfProject1_OnlineShop
             userManager.LogIn(txt_Email.Text, txt_Password.Text);
             if(File.Exists(_currentUserFilePath))
             {
-                txtblock_1.Text = File.ReadAllText(UserManager.currentUserFilePath);
                 _mainWindow.UpdateHiUser();
                 _mainWindow.UpdateLoginButton();
                 _mainWindow.ShowHideMgmtButtons();

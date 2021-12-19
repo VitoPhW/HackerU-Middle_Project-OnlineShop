@@ -19,34 +19,35 @@
             <ColumnDefinition Width="20" />     <!--Column 8-->
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />   <!--Row 0-->
+            <RowDefinition Height="40" />   <!--Row 0-->
             <RowDefinition Height="auto" /> <!--Row 1-->
             <RowDefinition Height="auto" /> <!--Row 2-->
             <RowDefinition Height="auto" /> <!--Row 3-->
-            <RowDefinition Height="auto" /> <!--Row 4-->
+            <RowDefinition Height="30" /> <!--Row 4-->
             <RowDefinition Height="auto" /> <!--Row 5-->
             <RowDefinition Height="*" />    <!--Row 6-->
             <RowDefinition Height="20" />   <!--Row 7-->
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="2" Grid.Row="1" FontSize="24" Content="My orders" Width="300" HorizontalContentAlignment="Center"/>
-        <Button x:Name="bt_BackToHomePage" Grid.Column="4" Grid.Row="2" Width="90" HorizontalAlignment="Right" Content="Back to Store" Margin="10" Click="bt_BackToHomePage_Click"/>
+        <Label Grid.Column="2" Grid.Row="1" FontSize="24" Content="My orders" Width="224" HorizontalContentAlignment="Center"/>
+        <Button x:Name="bt_BackToHomePage" Grid.Column="2" Grid.Row="0" Width="90" Height="30" HorizontalAlignment="Left" Content="Back to Store"  Click="bt_BackToHomePage_Click"/>
 
-        <DockPanel Grid.Column="2" Grid.Row="3" Width="300">
-            <DataGrid x:Name="DataGridOrders" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*"  MaxHeight="200" SelectionChanged="DataGridOrders_SelectionChanged">
+        <DockPanel Grid.Column="2" Grid.Row="3" Width="224">
+            <DataGrid x:Name="DataGridOrders" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*"  MaxHeight="160" SelectionChanged="DataGridOrders_SelectionChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Order number" Binding="{Binding OrderID}" MinWidth="30"/>
-                    <DataGridTextColumn Header="Purchased on" Binding="{Binding OrderDate}" MinWidth="100"/>
+                    <DataGridTextColumn Header="Order no'" Binding="{Binding OrderID}" Width="60" />
+                    <DataGridTextColumn Header="Purchased on" Binding="{Binding OrderDate, StringFormat=d, ConverterCulture=en-GB}" MinWidth="100"/>
+                    <DataGridTextColumn Header="at" Binding="{Binding OrderDate, StringFormat=t, ConverterCulture=en-GB}" MinWidth="30"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
 
         <Label Grid.Column="4" Grid.Row="1" FontSize="24" Content="Order details" Width="300" HorizontalContentAlignment="Center"/>
 
-        <DockPanel Grid.Column="4" Grid.Row="3" Width="430">
+        <DockPanel Grid.Column="4" Grid.Row="3" Width="492">
             <DataGrid x:Name="DataGridOrderDetails" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" MaxHeight="200">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Order number" Binding="{Binding OrderID}" MinWidth="30" MaxWidth="86"/>
+                    <DataGridTextColumn Header="Order no'" Binding="{Binding OrderID}" Width="60"/>
                     <DataGridTextColumn Header="Product" Binding="{Binding Product.ProductName}" MinWidth="70" MaxWidth="120"/>
                     <DataGridTextColumn Header="Product description" Binding="{Binding Product.ProductDescription}" Width="*"/>
                     <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="55"/>
@@ -69,7 +70,7 @@
             </DataGrid>
         </DockPanel>
 
-        <DockPanel Grid.Column="1" Grid.Row="4" Width="760" MinWidth="300" MinHeight="100" MaxHeight="200" Margin="0 10" Grid.ColumnSpan="7" HorizontalAlignment="Left">
+        <DockPanel Grid.Column="1" Grid.Row="5" Width="760" MinWidth="300" MinHeight="100" MaxHeight="200" Margin="0 10" Grid.ColumnSpan="7" HorizontalAlignment="Left">
             <ListBox x:Name="ListBoxProducts" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="600" SelectionMode="Multiple">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -87,7 +88,7 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
-            <Button x:Name="bt_Reorder" Width="90" Height="30" HorizontalAlignment="Right" Content="Reorder" Margin="10" Click="bt_Reorder_Click"/>
+            <Button x:Name="bt_Reorder" Width="90" Height="30" HorizontalAlignment="Right" Content="Reorder" Margin="10 0 30 0" Click="bt_Reorder_Click"/>
         </DockPanel>
 
 

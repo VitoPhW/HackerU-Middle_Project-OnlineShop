@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfProject1_OnlineShop"
         mc:Ignorable="d"
-        Title="MyAccount" Height="450" Width="800">
+        Title="MyAccount" Height="450" Width="480">
     <Grid x:Name="HomePage">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />     <!--Column 0-->
             <ColumnDefinition Width="auto" />   <!--Column 1-->
             <ColumnDefinition Width="auto" />   <!--Column 2-->
             <ColumnDefinition Width="auto" />   <!--Column 3-->
-            <ColumnDefinition Width="*" />      <!--Column 4-->
-            <ColumnDefinition Width="20" />     <!--Column 5-->
+            <ColumnDefinition Width="auto" />   <!--Column 4-->
+            <ColumnDefinition Width="*" />      <!--Column 5-->
+            <ColumnDefinition Width="20" />     <!--Column 6-->
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />   <!--Row 0-->
@@ -25,9 +26,10 @@
             <RowDefinition Height="auto" /> <!--Row 5-->
             <RowDefinition Height="auto" /> <!--Row 6-->
             <RowDefinition Height="auto" /> <!--Row 7-->
+            <RowDefinition Height="auto" /> <!--Row 8-->
             
-            <RowDefinition Height="*" />    <!--Row 8-->
-            <RowDefinition Height="20" />   <!--Row 9-->
+            <RowDefinition Height="*" />    <!--Row 9-->
+            <RowDefinition Height="20" />   <!--Row 10-->
         </Grid.RowDefinitions>
 
         <Label Grid.Column="2" Grid.Row="1" FontSize="24" Content="Account details" />
@@ -41,7 +43,7 @@
         <Label Content="Email" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
         <TextBox x:Name="txt_Email" Grid.Column="2" Grid.Row="4" Width="200" Height="20" Margin="10"/>
         
-        <Label Content="Password" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+        <Label Content="New password" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
         <TextBox x:Name="txt_Password" Grid.Column="2" Grid.Row="5" Width="200" Height="20" Margin="10"/>
         
         <Label Content="Phone number" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
@@ -52,6 +54,6 @@
 
         <Button x:Name="bt_UpdateDetails" Grid.Column="2" Grid.Row="8" Margin="10" Content="Update account details" Height="30" Click="bt_UpdateDetails_Click" />
 
-        <Button x:Name="bt_BackToHomePage" Grid.Column="3" Grid.Row="2" Content="Back to Store" Margin="10" Click="bt_BackToHomePage_Click"/>
+        <Button x:Name="bt_BackToHomePage" Grid.Column="1" Grid.Row="1" Content="Back to Store" Width="90" Height="30" Margin="10" Click="bt_BackToHomePage_Click"/>
     </Grid>
 </Window>
