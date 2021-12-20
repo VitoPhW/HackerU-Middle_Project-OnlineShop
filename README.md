@@ -93,3 +93,28 @@ An online shop, managed by administrators. Inventory or items models can be upda
      alt="Homepage scree"
      width="800px"
      style="float: left; margin-right: 10px;" />
+     
+ #### My Orders screen
+<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/ProjectElements/OnlineShop_MyOrders.png"
+     alt="Homepage scree"
+     width="800px"
+     style="float: left; margin-right: 10px;" />
+     
+ #### My Account screen
+<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/ProjectElements/OnlineShop_MyAccount.png"
+     alt="Homepage scree"
+     width="800px"
+     style="float: left; margin-right: 10px;" />
+     
+ #### Inventory screen
+<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/ProjectElements/OnlineShop_Inventory.png"
+     alt="Homepage scree"
+     width="800px"
+     style="float: left; margin-right: 10px;" />
+     
+ #### Sign up\Sign in screen
+<img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/ProjectElements/OnlineShop_SignIn.Up.png"
+     alt="Homepage scree"
+     width="800px"
+     style="float: left; margin-right: 10px;" />
+
