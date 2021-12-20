@@ -35,26 +35,29 @@
             <DataGrid x:Name="DataGridInventory" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*"  MaxHeight="290" CellEditEnding="DataGridInventory_CellEditEnding">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Cat. no'" Binding="{Binding ProductID}" MinWidth="30" MaxWidth="50" IsReadOnly="True" CanUserResize="False"/>
-                    <DataGridTextColumn Header="Name" Binding="{Binding ProductName}" MinWidth="100"/>
-                    <DataGridTextColumn Header="Description" Binding="{Binding ProductDescription}" MinWidth="100"/>
-                    <DataGridTextColumn Header="Category name" Binding="{Binding Category.CategoryName}" MinWidth="100"/>
-                    <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice, TargetNullValue=(enter a Untir price)}" MinWidth="50"/>
-                    <DataGridTextColumn Header="Units in stock" Binding="{Binding UnitsInStock, TargetNullValue=(enter a Units in stock)}" MinWidth="40"/>
-                    <DataGridTemplateColumn Header ="Image">
+                    <DataGridTextColumn Header="Name" Binding="{Binding ProductName, Mode=TwoWay}" MinWidth="100"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding ProductDescription, Mode=TwoWay}" MinWidth="100"/>
+                    <DataGridTextColumn Header="Cat. ID" Binding="{Binding CategoryID, Mode=TwoWay}" Width="30"/>
+                    <DataGridTextColumn Header="Category name" Binding="{Binding Category.CategoryName}" IsReadOnly="True" Width="94"/>
+                    <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice, TargetNullValue=(enter a Untir price), Mode=TwoWay}" Width="64"/>
+                    <DataGridTextColumn Header="Units in stock" Binding="{Binding UnitsInStock, TargetNullValue=(enter a Units in stock), Mode=TwoWay}" Width="82"/>
+                    <DataGridTemplateColumn Header ="Image" IsReadOnly="True" Width="46">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding Image}" Stretch="UniformToFill" Width="40" Height="50" ToolTip="{Binding Image}"/>
+                                    <Image Source="{Binding Image}" Stretch="UniformToFill" Width="46" Height="50" ToolTip="{Binding Image}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Image link" Binding="{Binding Image}" MaxWidth="100"/>
+                    <DataGridTextColumn Header="Image link" Binding="{Binding Image, Mode=TwoWay}" MaxWidth="100"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
 
-        <Button x:Name="UpdateDB" Grid.Column="1" Grid.Row="4" Content="Update All" Width="90" Height="30" Margin="10" HorizontalAlignment="Left" ToolTip="Update Database" Click="UpdateDB_Click"/>
+        <Button x:Name="bt_UpdateDB" Grid.Column="1" Grid.Row="4" Content="Update All" Width="90" Height="30" Margin="10" HorizontalAlignment="Left" ToolTip="Update Database" Click="bt_UpdateDB_Click"/>
+        <Button x:Name="bt_AddProduct" Grid.Column="2" Grid.Row="4" Content="Add product" Width="90" Height="30" Margin="10" HorizontalAlignment="Left" ToolTip="Add new product to Database" Click="bt_AddProduct_Click"/>
+        <Button x:Name="bt_RemoveProduct" Grid.Column="3" Grid.Row="4" Content="Remove product" Width="94" Height="30" Margin="10" HorizontalAlignment="Left" ToolTip="Remove selected product from Database" Click="bt_RemoveProduct_Click"/>
 
     </Grid>
 </Window>

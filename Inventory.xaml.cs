@@ -47,7 +47,7 @@ namespace WpfProject1_OnlineShop
             _mainWindow.Show();
         }
 
-        private void UpdateDB_Click(object sender, RoutedEventArgs e)
+        private void bt_UpdateDB_Click(object sender, RoutedEventArgs e)
         {
             using (var dbContext = new DBAccess())
             {
@@ -66,5 +66,36 @@ namespace WpfProject1_OnlineShop
                 _changedProducts.Add(e.Row.Item as Products);
             }
         }
+
+        private void bt_AddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            if(DataGridInventory.Items.MoveCurrentToLast())
+            { 
+                Products newProduct = DataGridInventory.Items.CurrentItem as Products;
+
+                using (var dbContext = new DBAccess())
+                {
+                    dbContext.Add(newProduct);
+                    dbContext.SaveChanges();
+                }
+            }
+            MessageBox.Show("Product has been added successfully.");
+
+            DataGridInventory.Items.Refresh();
+        }
+
+        private void bt_RemoveProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Products removeProduct = DataGridInventory.SelectedItem as Products;
+            using (var dbContext = new DBAccess())
+            {
+                dbContext.Remove(removeProduct);
+                dbContext.SaveChanges();
+            }
+            MessageBox.Show("Product has been removed successfully.");
+
+            LoadInventory();
+        }
+        
     }
 }
