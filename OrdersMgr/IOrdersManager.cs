@@ -11,6 +11,7 @@ namespace WpfProject1_OnlineShop.OrdersMgr
     {
         List<Orders> GetOrdersOfLoggedInUser();
         List<OrderDetails> GetOrderDetailsByOrderID(int orderID);
+        List<OrderDetails> GetOrderDetailsByUserID(int orderID);
         void Create(string email);
         void Create(string email, List<Products> products);
     }

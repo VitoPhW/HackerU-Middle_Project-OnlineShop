@@ -228,7 +228,9 @@ namespace WpfProject1_OnlineShop
 
         private void bt_Admin_Click(object sender, RoutedEventArgs e)
         {
-
+            Administration admin = new Administration(this);
+            admin.Show();
+            this.Hide();
         }
     }
 }

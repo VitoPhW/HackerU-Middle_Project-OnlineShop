@@ -52,20 +52,6 @@
                     <DataGridTextColumn Header="Product description" Binding="{Binding Product.ProductDescription}" Width="*"/>
                     <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="55"/>
                     <DataGridTextColumn Header="Discount" Binding="{Binding Discount}" Width="57"/>
-                    <!--<DataGridTemplateColumn>
-                        <DataGridTemplateColumn.Header>
-                            <DataTemplate>
-                                <TextBlock Text="Add to cart"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.Header>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="addToCart" Content="Add to cart" Click="addToCart_Click" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>

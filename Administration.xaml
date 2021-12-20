@@ -16,7 +16,7 @@
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -30,14 +30,47 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="24" Text="New product" />
-        <TextBox x:Name="txt_NProdName" Grid.Column="2" Grid.Row="2" Text="Product name" Width="100" Height="20" Margin="10"/>
-        <TextBox x:Name="txt_NProdDescription" Grid.Column="2" Grid.Row="3" Text="Product description" Width="100" Height="20" Margin="10"/>
-        <TextBox x:Name="txt_NCategory" Grid.Column="2" Grid.Row="4" Text="Category" Width="100" Height="20" Margin="10"/>
-        <TextBox x:Name="txt_NUnitPrice" Grid.Column="2" Grid.Row="5" Text="Unit price" Width="100" Height="20" Margin="10"/>
-        <TextBox x:Name="txt_NUnitsInStock" Grid.Column="2" Grid.Row="6" Text="Units in stock" Width="100" Height="20" Margin="10"/>
-        <Button x:Name="bt_AddNewProduct" Grid.Column="2" Grid.Row="7" Margin="10" Content="Add a product" Width="90" Height="20" Click="bt_AddNewProduct_Click" />
+        <Button x:Name="bt_BackToHomePage" Grid.Column="1" Grid.Row="1" Width="90" Height="30" HorizontalAlignment="Left" Content="Back to Store"  Click="bt_BackToHomePage_Click"/>
 
-        <TextBlock x:Name="txtblock_1" Grid.Column="4" Grid.Row="6" Grid.RowSpan="2" Text="Logs..." Foreground="#FFA80000" OpacityMask="#FF080606"/>
+        <!--  Users  -->
+        <Label Content="Users" Grid.Column="1" Grid.Row="2" Margin="10 0" FontWeight="Bold" FontSize="20" Grid.ColumnSpan="4"/>
+        <Border Background="GhostWhite" BorderBrush="LightSeaGreen" BorderThickness="1,3,1,3" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4">
+            <DockPanel Height="100" Margin="10" HorizontalAlignment="Left">
+                <DataGrid x:Name="DataGridUsers" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" Width="748" SelectionChanged="DataGridUsers_SelectionChanged" CellEditEnding="DataGridUsers_CellEditEnding">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="User ID" Binding="{Binding UserID}" Width="60" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="First name" Binding="{Binding FirstName, Mode=TwoWay}" MinWidth="80"/>
+                        <DataGridTextColumn Header="Last name" Binding="{Binding LastName, Mode=TwoWay}" MinWidth="100"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email, Mode=TwoWay}" MinWidth="100"/>
+                        <DataGridTextColumn Header="Phone" Binding="{Binding Phone, Mode=TwoWay}" MinWidth="100"/>
+                        <DataGridTextColumn Header="User type" Binding="{Binding TypeName, Mode=TwoWay}" MinWidth="70"/>
+                        <DataGridTextColumn Header="Birth date" Binding="{Binding BirthDate, StringFormat=d, ConverterCulture=en-GB, Mode=TwoWay}" MinWidth="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Border>
+
+        <Button x:Name="bt_UpdateUsers" Grid.Column="1" Grid.Row="4" Content="Update users" Width="90" Height="30" Margin="0 10 10 0" HorizontalAlignment="Left" ToolTip="Update users" Click="bt_UpdateUsers_Click"/>
+        <Button x:Name="bt_CreateUser" Grid.Column="2" Grid.Row="4" Content="Create user" Width="90" Height="30" Margin="10 10 10 0" HorizontalAlignment="Left" ToolTip="Create new user" Click="bt_CreateUser_Click"/>
+        <Button x:Name="bt_DeleteUser" Grid.Column="3" Grid.Row="4" Content="Delete user" Width="90" Height="30" Margin="10 10 10 0" HorizontalAlignment="Left" ToolTip="Delete user" Click="bt_DeleteUser_Click"/>
+        
+        <!--  Orders  -->
+        <Label Content="Orders" Grid.Column="1" Grid.Row="5" Margin="10 0 0 0" FontWeight="Bold" FontSize="20" Grid.ColumnSpan="4"/>
+        <Border Background="GhostWhite" BorderBrush="LightSeaGreen" BorderThickness="1,3,1,3" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="4">
+            <DockPanel Height="100" Margin="10" HorizontalAlignment="Left">
+                <DataGrid x:Name="DataGridOrderDetails" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" Width="748">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Order no'" Binding="{Binding OrderID}" Width="60"/>
+                        <DataGridTextColumn Header="Product" Binding="{Binding Product.ProductName}" Width="*"/>
+                        <DataGridTextColumn Header="Product description" Binding="{Binding Product.ProductDescription}" Width="*"/>
+                        <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="55"/>
+                        <DataGridTextColumn Header="Discount" Binding="{Binding Discount}" Width="57"/>
+                        <DataGridTextColumn Header="Purchased on" Binding="{Binding Order.OrderDate, StringFormat=d, ConverterCulture=en-GB}" Width="82"/>
+                        <DataGridTextColumn Header="at" Binding="{Binding Order.OrderDate, StringFormat=t, ConverterCulture=en-GB}" Width="42"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Border>
+
     </Grid>
 </Window>

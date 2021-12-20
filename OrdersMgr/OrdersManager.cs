@@ -39,7 +39,16 @@ namespace WpfProject1_OnlineShop.OrdersMgr
             // Returns OrderDetails including Product
             using (var dbContext = new DBAccess())
             {
-                List<OrderDetails> orders = dbContext.OrderDetails.Where(p => p.OrderID.Equals(orderID)).Include(p=>p.Product).OrderBy(p => p.Product.ProductName).ToList();
+                List<OrderDetails> orders = dbContext.OrderDetails.Where(p => p.OrderID.Equals(orderID)).Include(p => p.Product).OrderBy(p => p.Product.ProductName).ToList();
+                return orders;
+            }
+        }
+        public List<OrderDetails> GetOrderDetailsByUserID(int userID)
+        {
+            // Returns OrderDetails including Order
+            using (var dbContext = new DBAccess())
+            {
+                List<OrderDetails> orders = dbContext.OrderDetails.Where(p => p.Order.UserID.Equals(userID)).Include(p => p.Order).Include(p=>p.Product).OrderBy(p => p.OrderID).ToList();
                 return orders;
             }
         }
