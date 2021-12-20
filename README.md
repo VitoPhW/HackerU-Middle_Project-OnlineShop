@@ -103,7 +103,7 @@ An online shop, managed by administrators. Inventory or items models can be upda
  #### My Account screen
 <img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/ProjectElements/OnlineShop_MyAccount.png"
      alt="Homepage scree"
-     width="800px"
+     width="500px"
      style="float: left; margin-right: 10px;" />
      
  #### Inventory screen
@@ -115,6 +115,6 @@ An online shop, managed by administrators. Inventory or items models can be upda
  #### Sign up\Sign in screen
 <img src="https://github.com/VitoPhW/HackerU-Middle_Project-OnlineShop/blob/master/ProjectElements/OnlineShop_SignIn.Up.png"
      alt="Homepage scree"
-     width="800px"
+     width="200px"
      style="float: left; margin-right: 10px;" />
 
